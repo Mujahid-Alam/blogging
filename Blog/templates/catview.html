@@ -1,0 +1,31 @@
+{% extends 'base.html' %}
+
+<!-- Title -->
+{% block title %}
+ Category 
+ {% endblock %}
+
+<!-- Content -->
+
+{% block content %} 
+
+<div class="container-custom">
+   <h3>{{ cat.title }}</h3>
+   <div class="img-container">
+      <img src="/media/{{ cat.image }}" class="responsive-img" style="max-height: 350px ; width: 100%; object-fit: cover;"  alt="">
+   </div>
+   <p>{{ cat.description }}</p>
+
+
+   <ul class="collection">
+      {% for p in posts %}
+      <a href="/post/{{ p.url }}" class="collection-item">{{ p.title }}</a>
+      {% empty %}
+      <h4>No Post in this Category</h4>
+      {% endfor %}
+    </ul>
+
+</div>
+
+
+{% endblock %}

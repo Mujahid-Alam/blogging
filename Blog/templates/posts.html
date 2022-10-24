@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+
+{% block title %} Welcome to Blogs {% endblock %}
+
+{% block content %} 
+
+<div class="container-custom">
+    <div class="row">
+        <div class="col s12 m10">
+            <h4>{{ url.title }}</h4>
+            <p>({{ url.cat.title}})</p>
+            <img src="/media/{{url.image}}" class="responsive-img" alt="">
+            {{ url.content | safe}}
+        </div>
+        <div class="col s12 m2">
+            <div class="container-custom">
+                <div class="">
+                    {% for cat in cats %}
+                    <div class="card item">
+                        <div class="imag-container">
+                            <img src="/media/{{ cat.image }}" class="responsive-img object-fit: cover;" alt="">
+                        </div>
+                        <div class="card-content">
+                            <div class="card-title">
+                                {{ cat.title }}
+                            </div>
+                            <p class="truncate">{{ cat.description }}</p>
+                            <div class="conatiner mt20">
+                                <a href="/category/{{ cat.url }}" class="btn btn-primary">View</a>
+                            </div>
+                        </div>
+                       
+                    </div>
+            
+                    {% endfor %}
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+</div>
+
+{% endblock %}
