@@ -1,11 +1,11 @@
 {% extends 'base.html' %}
 
-
-{% block title %} Welcome to Blogs {% endblock %}
+{% block title %} Post {% endblock %}
 
 {% block content %} 
+<!-- single page / view page -->
 
-<div class="container-custom">
+<div class="container-custom" >
     <div class="row">
         <div class="col s12 m10">
             <h4>{{ url.title }}</h4>
@@ -13,33 +13,70 @@
             <img src="/media/{{url.image}}" class="responsive-img" alt="">
             {{ url.content | safe}}
         </div>
-        <div class="col s12 m2">
-            <div class="container-custom">
-                <div class="">
-                    {% for cat in cats %}
-                    <div class="card item">
-                        <div class="imag-container">
-                            <img src="/media/{{ cat.image }}" class="responsive-img object-fit: cover;" alt="">
-                        </div>
-                        <div class="card-content">
-                            <div class="card-title">
-                                {{ cat.title }}
-                            </div>
-                            <p class="truncate">{{ cat.description }}</p>
-                            <div class="conatiner mt20">
-                                <a href="/category/{{ cat.url }}" class="btn btn-primary">View</a>
-                            </div>
-                        </div>
-                       
-                    </div>
-            
-                    {% endfor %}
+    </div>
+    <hr>
+    <!-- Carousel / Category -->
+    <div class="owl-carousel">
+        {% for cat in cats %}
+        <div class="card item">
+            <div class="imag-container">
+                <img src="/media/{{ cat.image }}" class="responsive-img object-fit: cover;" alt="">
+            </div>
+            <div class="card-content">
+                <div class="card-title">
+                    {{ cat.title }}
+                </div>
+                <p class="truncate">{{ cat.description }}</p>
+                <div class="conatiner mt20">
+                    <a href="/category/{{ cat.url }}" class="btn btn-primary">View</a>
                 </div>
             </div>
         </div>
+        {% endfor %}
     </div>
+</div>
+<!-- # comments  / Query-->
+ 
+{% if request.user.is_authenticated %}
 
+<div class="container" style="background-color: rgb(245, 247, 247);">
+    <div class="row">
+        <div class="col s8 m8 ">
+            <form action="/post/{{url.url}}" method="POST" class="">
+                {% csrf_token %}
+                <div class="form-group mb-3">
+                    <label class="label" for="name">Name</label>
+                    <input type="text" class="form-control" placeholder="Enter Your Subh Name" name="name" required />
+                </div>
+                <div class="form-group mb-3">
+                    <label class="label" for="password">Post - <strong>{{ url.title }}</strong></label>
+                    <input type="text" class="form-control" placeholder="Post" name="post" required />
+                </div>
 
+                <div class="form-group mb-3">
+                    <label class="label" for="name">Email</label>
+                    <input type="email" class="form-control" placeholder="Email" name="email" required />
+                </div>
+                <div class="form-group mb-3">
+                    <label class="label" for="password">Body</label>
+                    <input type="text" class="form-control" placeholder="Post" name="body" required />
+                </div>
+
+                <div class="form-group">
+                    <input type="submit" class="form-control btn btn-primary rounded submit px-3" value="Submit" />
+                </div>
+            </form>
+        </div>
+    </div>
 </div>
 
+{% else %}
+<div class="container-custom">
+<a class="btn btn-primary center" href="/login">Leave a Comments</a><br><br>
+
+</div>
+{% endif %}
+
+
 {% endblock %}
+

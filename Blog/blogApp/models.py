@@ -1,3 +1,4 @@
+from statistics import mode
 from django.db import models
 from django.utils.html import format_html
 # Create your models here.
@@ -31,4 +32,13 @@ class Post(models.Model):
 
     def image_tag(self):
         return format_html('<img src="/media/{}" style="width:50px; height:50px"; />'.format(self.image))
-    
+
+# Comment
+class Comment(models.Model):
+    comment_id = models.AutoField(primary_key=True)
+    # post = models.ForeignKey(Post,on_delete=models.CASCADE,related_name='comments')
+    post = models.CharField(max_length=300)
+    name = models.CharField(max_length=80)
+    email = models.EmailField()
+    body = models.TextField()
+    created_on = models.DateTimeField(auto_now_add=True)

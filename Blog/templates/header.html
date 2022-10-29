@@ -10,13 +10,23 @@
 
   </ul>
   <nav class="bg-primary">
-    <div class="nav-wrapper">
-      <a href="/" class="brand-logo">I-Blog</a>
+    <div class="nav-wrapper container-custom">
+      <a href="/" class="brand-logo">MyBlogging</a>
       <ul class="right hide-on-med-and-down">
         <li><a href="/about">About</a></li>
         <li><a href="/admin">Admin</a></li>
+
         <!-- Dropdown Trigger -->
+
         <li><a class="dropdown-trigger" href="" data-target="dropdown1">Categories<i class="material-icons right">arrow_drop_down</i></a></li>
+        
+        {% if request.user.is_authenticated %}
+        <li><a href="/logout">{{ request.user.get_full_name}} - logout</a></li>
+
+        {% else %}
+        <li><a href="/login">Login</a></li>
+        {% endif %}
+      
       </ul>
     </div>
   </nav>

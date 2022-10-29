@@ -12,6 +12,10 @@ class PostAdmin(admin.ModelAdmin):
 
     class Media:
         js = ('https://cdn.tiny.cloud/1/no-api-key/tinymce/6/tinymce.min.js', 'js/script.js',)
-
+# comment
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('name','email', 'body', 'created_on',)
+    
 admin.site.register(Category, CategoryAdmin)
 admin.site.register(Post, PostAdmin)
+admin.site.register(Comment, CommentAdmin)

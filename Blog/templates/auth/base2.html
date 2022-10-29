@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+{% load static %}
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -12,23 +13,36 @@
     
 
     <title>{% block title%}  {% endblock%}</title>
-    {% load static %}
+
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
     <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}">
     <link rel="stylesheet" href="{% static 'css/owl.theme.default.min.css' %}">
-    
+    <style>
+        .alert{
+            background-color: rgb(34, 206, 169);
+            color: rgb(243, 253, 253);
+            height: 25px;
+            text-align: center;
+        }
+    </style>
 </head>
 <body>
+<!-- Header -->
     {% include 'header.html' %}
 
-    
+
+    {% for message in messages %}
+    <div class="alert alert-{{ message.tags }} warning alert-dismissible fade show " role="alert">
+        <strong>Hello Dude! </strong> {{ message }}
+    </div>
+    {% endfor %}
+
+
+<!-- Content -->
     {% block content%}
     
     {% endblock%}
-
-    {% include 'footer.html'  %}
-
 
 <script>  M.AutoInit();</script>
 
@@ -37,31 +51,9 @@
 
 <script>
     $(document).ready(function(){
-  $(".owl-carousel").owlCarousel(
-
-    {
-    loop:true,
-    margin:7,
-    responsiveClass:true,
-    responsive:{
-        0:{
-            items:1,
-            nav:true
-        },
-        600:{
-            items:3,
-            nav:false
-        },
-        1000:{
-            items:5,
-            nav:true,
-            loop:false
-        }
-    }
-}
-
-  );
+  $(".owl-carousel").owlCarousel();
 });
+
 </script>
 </body>
 </html>

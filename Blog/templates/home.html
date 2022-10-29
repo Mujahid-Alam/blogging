@@ -8,7 +8,7 @@
 <div class="container-custom">
     <div class="owl-carousel">
         {% for cat in cats %}
-        <div class="card item">
+        <div class="card item ">
             <div class="imag-container">
                 <img src="/media/{{ cat.image }}" class="responsive-img object-fit: cover;" alt="">
             </div>
@@ -17,18 +17,44 @@
                     {{ cat.title }}
                 </div>
                 <p class="truncate">{{ cat.description }}</p>
-                <div class="conatiner mt20">
+                <div class="conatiner mt20 ">
                     <a href="/category/{{ cat.url }}" class="btn btn-primary">View</a>
                 </div>
             </div>
-           
         </div>
-
         {% endfor %}
     </div>
 </div>
 
-<div class="container">
+
+<div class="container-custom">
+    {% for p in posts %}
+    <div class="row">
+        <div class="col s12 m12 ">
+            <div class="row">
+                <div class="col s8 m8 bg-8">
+                    <h5>{{p.title}}</h5>
+                    <p>{{p.content | truncatewords:30 | safe}}</p> 
+                    <a href="/post/{{p.url}}" class="btn btn-primary" >Readmore...</a>
+
+                </div>
+                <div class="col s4 post">
+                    <img id="image-post" src="/media/{{p.image}}" class="responsive-img " alt="">
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+    {% endfor %}
+</div>
+<hr>
+
+{% endblock %}
+
+
+
+<!-- <div class="container">
     <div class="row bg-grey">
         <div class="col">
             {% for p in posts %}
@@ -43,6 +69,4 @@
             {% endfor %}
         </div>
     </div>
-</div>
-
-{% endblock %}
+</div> -->

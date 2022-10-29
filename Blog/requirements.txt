@@ -3,3 +3,20 @@ Django==4.1.2
 django-material-admin==1.8.6
 Pillow==9.2.0
 sqlparse==0.4.3
+
+
+
+
+
+
+# # Blogging
+
+# 1. POST / CATEGORY
+# 2. full page of post
+# 3. Sign Up / Login > logout
+# 4.  if not a login , not a able to leave comments for particular post
+
+
+# 5. Category View / Category Type
+
+# 6  Admin Customization
