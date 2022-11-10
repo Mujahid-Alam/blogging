@@ -1,22 +1,7 @@
 asgiref==3.5.2
 Django==4.1.2
 django-material-admin==1.8.6
+gunicorn==20.1.0
 Pillow==9.2.0
 sqlparse==0.4.3
-
-
-
-
-
-
-# # Blogging
-
-# 1. POST / CATEGORY
-# 2. full page of post
-# 3. Sign Up / Login > logout
-# 4.  if not a login , not a able to leave comments for particular post
-
-
-# 5. Category View / Category Type
-
-# 6  Admin Customization
+whitenoise==6.2.0

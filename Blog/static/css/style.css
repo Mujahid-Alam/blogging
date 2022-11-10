@@ -1,0 +1,48 @@
+.bg-primary{
+    background: #477091!important;
+}
+.bg-grey{
+    background: #e3e6e9!important;
+}
+
+.mt20{
+    margin-top: 5px;
+}
+#img{
+    width: 250px;
+    height: 150px;
+}
+
+
+/*     post      */
+
+.container-custom{
+    width: 95%!important;
+    margin: auto;
+}
+
+#image-post {
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 5px;
+    width: 230px;
+    margin-top: 20px;
+    margin-left: 20px;
+  }
+
+/* Category */
+
+
+/* footer */
+.page-footer-custom{
+    background-color: #1784e4;
+
+}
+
+
+
+/* #AUTH */
+
+.authcolor{
+    background-color: #1784e4;
+}

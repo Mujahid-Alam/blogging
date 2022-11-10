@@ -20,7 +20,7 @@ def home(request):
         'posts':posts,
         'cats':cats
     }
-    return render(request, 'home.html', data)
+    return render(request, 'index.html', data)
 
     
 def urlpost(request, url):
@@ -29,9 +29,9 @@ def urlpost(request, url):
         name = request.POST.get('name')
         email = request.POST.get('email')
         body = request.POST.get('body')
-        post = request.POST.get('post')
+        # post = request.POST.get('post')
 
-        print('===>>>', post)
+        # print('===>>>', post)
 
         # set data in objects
         c = Comment()

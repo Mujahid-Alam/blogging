@@ -42,8 +42,6 @@
                     <img id="image-post" src="/media/{{p.image}}" class="responsive-img " alt="">
                 </div>
             </div>
-
-
         </div>
     </div>
     {% endfor %}
@@ -52,21 +50,3 @@
 
 {% endblock %}
 
-
-
-<!-- <div class="container">
-    <div class="row bg-grey">
-        <div class="col">
-            {% for p in posts %}
-            <div class="row mt-5">
-                <div class="col s12 m8 bg-8">
-                    <h4>{{p.title}}</h4>
-                    {{ p.content | truncatewords:35 | safe }} <br>
-                    <a href="/post/{{p.url}}" class="btn btn-primary" >Readmore...</a>
-                </div>
-                <div class="col s12 m4 bg-4"><img id="" src="/media/{{p.image}}" class="responsive-img " alt=""></div>
-            </div>
-            {% endfor %}
-        </div>
-    </div>
-</div> -->
